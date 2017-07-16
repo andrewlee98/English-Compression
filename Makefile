@@ -1,6 +1,6 @@
 CC = clang++
-CXXFLAGS = -g -Wall $(INCLUDES)
-LDFLAGS = -g
+CXXFLAGS = -Wall $(INCLUDES)
+LDFLAGS =
 
 main:
 
