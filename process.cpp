@@ -35,7 +35,7 @@ int main(int argc, char **argv) {
     ofstream writeDict;
     writeDict.open("dict.txt");
     while (getline(inDict, str)) {
-        if (find(vec.begin(), vec.eng(), str) != vec.end()) {
+        if (find(vec.begin(), vec.end(), str) == vec.end()) {
             vec.push_back(str);
         }
     }
