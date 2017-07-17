@@ -5,17 +5,19 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
-int main() {
+int main(int argc, char **argv) {
     char c;
     string str;
     vector<string> vec;
+    vector<string>::iterator iter;
 
     // unclean list of words
     ifstream words;
-    words.open("words.txt");
+    words.open(argv[1]);
 
     // file to write to
     ofstream dict;
@@ -33,10 +35,12 @@ int main() {
     ofstream writeDict;
     writeDict.open("dict.txt");
     while (getline(inDict, str)) {
-        vec.push_back(str);
+        if (find(vec.begin(), vec.eng(), str) != vec.end()) {
+            vec.push_back(str);
+        }
     }
-    for (auto iter = vec.begin(); iter < vec.end(); iter++) {
-        cout << *iter << endl;
+    for (iter = vec.begin(); iter < vec.end(); iter++) {
+        cout << *iter << endl; 
     }
 
     return 0;
