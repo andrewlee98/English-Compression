@@ -1,5 +1,5 @@
 // Andrew Lee
-// processes list of words to be lowercase
+// processes imperfect list of words
 
 #include <iostream>
 #include <fstream>
@@ -25,6 +25,7 @@ int main(int argc, char **argv) {
 
     // make all characters lowercase
     while ((c = words.get()) > 0) {
+
         dict.put(tolower(c));
     }
     dict.close();
@@ -40,7 +41,7 @@ int main(int argc, char **argv) {
         }
     }
     for (iter = vec.begin(); iter < vec.end(); iter++) {
-        cout << *iter << endl; 
+        cout << *iter << endl;
     }
 
     return 0;
