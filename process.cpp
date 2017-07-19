@@ -24,10 +24,8 @@ int main(int argc, char **argv) {
     dict.open("temp.txt");
 
     // make all characters lowercase
-    while ((c = words.get()) > 0) {
-        if (isprint(c)) {
-            dict.put(tolower(c));
-        }
+    while ((c = words.get()) != -1) {
+        dict.put(tolower(c));
     }
     dict.close();
 
@@ -43,6 +41,7 @@ int main(int argc, char **argv) {
         if (find(vec.begin(), vec.end(), str) == vec.end()) {
             vec.push_back(str);
         }
+        cout << i << endl;
     }
     for (iter = vec.begin(); iter != vec.end(); iter++) {
         cout << *iter << endl;
