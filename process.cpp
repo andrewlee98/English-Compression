@@ -6,12 +6,12 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <locale>
 
 using namespace std;
 
 int main(int argc, char **argv) {
     char c;
-    string str;
     vector<string> vec;
     vector<string>::iterator iter;
 
@@ -25,8 +25,9 @@ int main(int argc, char **argv) {
 
     // make all characters lowercase
     while ((c = words.get()) > 0) {
-
-        dict.put(tolower(c));
+        if (isprint(c)) {
+            dict.put(tolower(c));
+        }
     }
     dict.close();
 
@@ -35,14 +36,18 @@ int main(int argc, char **argv) {
     inDict.open("temp.txt");
     ofstream writeDict;
     writeDict.open("dict.txt");
-    while (getline(inDict, str)) {
+    
+    int i = 0;
+    for (string str; getline(inDict, str);) {
+        i++;
         if (find(vec.begin(), vec.end(), str) == vec.end()) {
             vec.push_back(str);
         }
     }
-    for (iter = vec.begin(); iter < vec.end(); iter++) {
+    for (iter = vec.begin(); iter != vec.end(); iter++) {
         cout << *iter << endl;
     }
+    cout << i << endl;
 
     return 0;
 }
