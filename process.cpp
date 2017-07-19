@@ -34,19 +34,21 @@ int main(int argc, char **argv) {
     inDict.open("temp.txt");
     ofstream writeDict;
     writeDict.open("dict.txt");
-    
+   
     int i = 0;
+    int j = 0;
     for (string str; getline(inDict, str);) {
         i++;
         if (find(vec.begin(), vec.end(), str) == vec.end()) {
+            j++;
             vec.push_back(str);
         }
-        cout << i << endl;
     }
-    for (iter = vec.begin(); iter != vec.end(); iter++) {
-        cout << *iter << endl;
-    }
-    cout << i << endl;
+    inDict.close();
+    remove("temp.txt");
+
+    cout << "Number of lines: " << i << endl;
+    cout << "Number of unique words: " << j << endl;
 
     return 0;
 }
