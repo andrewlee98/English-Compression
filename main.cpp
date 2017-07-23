@@ -12,7 +12,7 @@ int main() {
     vector<string> vec;
 
     ifstream dict;
-    dict.open("words.txt");
+    dict.open("dict.txt");
     while (getline(dict, str)) {
         vec.push_back(str);
     }

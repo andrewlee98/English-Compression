@@ -47,6 +47,10 @@ int main(int argc, char **argv) {
     inDict.close();
     remove("temp.txt");
 
+    for (vector<string>::iterator iter = vec.begin(); iter != vec.end(); iter++) {
+        writeDict << *iter << endl;
+    }
+
     cout << "Number of lines: " << i << endl;
     cout << "Number of unique words: " << j << endl;
 
