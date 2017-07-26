@@ -4,10 +4,13 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <map>
 
 using namespace std;
 
 int main() {
+    map<string, string> dictionary;
+    map<string, string> reverseDict;
     string str;
     vector<string> vec;
 
