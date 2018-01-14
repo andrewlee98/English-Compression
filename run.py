@@ -1,3 +1,8 @@
+# method called for reducing words
+def reduce_word(w, s):
+    for i in range(0, len(w)):
+        ret = w[0:i] + w[i + 1:-1]
+    return ret
 
 # open word list and read into list
 with open('words.txt') as f:
@@ -18,5 +23,3 @@ for w in wordlist:
     d[w] = sw
     s.add(sw)
 
-def reduce_word(w, s):
-    
